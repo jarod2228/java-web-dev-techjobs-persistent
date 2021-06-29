@@ -7,7 +7,7 @@ public class Job extends AbstractEntity{
 
     @ManyToOne
     private Employer employer;
-    private String skills;      //This may need changed to Skill skills;
+    private Skill skills;      //This may need changed to Skill skills;
 
 //    Instructions say to change employer from String to Employer
 //    They don't say to chance skills to Skill skills though...
@@ -16,7 +16,7 @@ public class Job extends AbstractEntity{
     public Job() {
     }
 
-    public Job(Employer anEmployer, String someSkills) {
+    public Job(Employer anEmployer, Skill someSkills) {
         super();
         this.employer = anEmployer;
         this.skills = someSkills;
@@ -32,11 +32,11 @@ public class Job extends AbstractEntity{
         this.employer = employer;
     }
 
-    public String getSkills() {
+    public Skill getSkills() {
         return skills;
     }
 
-    public void setSkills(String skills) {
+    public void setSkills(Skill skills) {
         this.skills = skills;
     }
 }

@@ -32,6 +32,7 @@ public class SkillController {
         if (errors.hasErrors()) {
             return "skills/add";
         }
+//        model.addAttribute("skills", skillRepository.findAll());  I guess I added this without direction to do so...
         skillRepository.save(newSkill);
         return "redirect:";
     }
