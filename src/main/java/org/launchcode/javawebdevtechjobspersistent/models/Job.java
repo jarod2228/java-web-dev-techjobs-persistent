@@ -3,21 +3,20 @@ package org.launchcode.javawebdevtechjobspersistent.models;
 import javax.persistence.*;
 
 @Entity
-public class Job{
+public class Job extends AbstractEntity{
 
-    @Id
-    @GeneratedValue
-    private int id;
+    @ManyToOne
+    private Employer employer;
+    private String skills;      //This may need changed to Skill skills;
 
-    private String name;
-
-    private String employer;
-    private String skills;
+//    Instructions say to change employer from String to Employer
+//    They don't say to chance skills to Skill skills though...
+//    Maybe I should do that later and leave it for now?
 
     public Job() {
     }
 
-    public Job(String anEmployer, String someSkills) {
+    public Job(Employer anEmployer, String someSkills) {
         super();
         this.employer = anEmployer;
         this.skills = someSkills;
@@ -25,19 +24,11 @@ public class Job{
 
     // Getters and setters.
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmployer() {
+    public Employer getEmployer() {
         return employer;
     }
 
-    public void setEmployer(String employer) {
+    public void setEmployer(Employer employer) {
         this.employer = employer;
     }
 
