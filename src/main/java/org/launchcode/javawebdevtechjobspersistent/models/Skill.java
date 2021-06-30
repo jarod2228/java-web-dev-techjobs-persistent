@@ -1,18 +1,32 @@
 package org.launchcode.javawebdevtechjobspersistent.models;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Skill extends AbstractEntity {
 
     @NotBlank
-    private String skillDescription;
+    private String description;
 
-    public Skill(String skillDescription) {
-        this.skillDescription = skillDescription;
+    @ManyToMany(mappedBy = "skills")
+    private List<Job> jobs;
+
+    public Skill(String description) {
+        this.description = description;
     }
 
     public Skill() {}
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
