@@ -25,10 +25,10 @@ public class EmployerController {
 
         return "employers/index";
     }
-//                ^^  Above method index() was mostly stolen from HomeController  ^^  ------------------------------------------
+
     @GetMapping("add")
     public String displayAddEmployerForm(Model model) {
-        model.addAttribute(new Employer());
+        model.addAttribute(new Employer());  //here
         return "employers/add";
     }
 
@@ -39,7 +39,6 @@ public class EmployerController {
         if (errors.hasErrors()) {
             return "employers/add";
         }
-
         employerRepository.save(newEmployer);
 
         return "redirect:";
@@ -51,7 +50,7 @@ public class EmployerController {
         Optional optEmployer = employerRepository.findById(employerId);
         if (optEmployer.isPresent()) {
             Employer employer = (Employer) optEmployer.get();
-            model.addAttribute("employer", employer);
+            model.addAttribute("employer", employer);   //I don't think this needs to be "employers"...
             return "employers/view";
         } else {
             return "redirect:../";

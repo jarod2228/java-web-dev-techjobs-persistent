@@ -9,11 +9,8 @@ public class Job extends AbstractEntity{
     @ManyToOne
     private Employer employer;
 
-    private List<Skill> skills;      //This may need changed to Skill skills;
-
-//    Instructions say to change employer from String to Employer
-//    They don't say to chance skills to Skill skills though...
-//    Maybe I should do that later and leave it for now?
+    @ManyToMany
+    private List<Skill> skills;
 
     public Job() {
     }

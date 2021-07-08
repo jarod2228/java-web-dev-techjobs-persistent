@@ -25,7 +25,7 @@ public class JobData {
 
         ArrayList<Job> results = new ArrayList<>();
 
-        if (value.toLowerCase().equals("all")){
+        if (value.toLowerCase().equals("all")){ //be gentle
             return (ArrayList<Job>) allJobs;
         }
 
