@@ -39,7 +39,7 @@ public class SkillController {
 
     @GetMapping("add")
     public String displayAddSkillForm(Model model) {
-        model.addAttribute("skill", new Skill()); //here and -- >
+        model.addAttribute("skill", new Skill());
         return "skills/add";
     }
 
@@ -49,7 +49,7 @@ public class SkillController {
         if (optSkill.isPresent()) {
             Skill skill = (Skill) optSkill.get();
             model.addAttribute("skill", skill);
-            return "skill/view";
+            return "skills/view";
         } else {
             return "redirect:../";
         }
