@@ -7,7 +7,8 @@
 ## Part 3: Test it with SQL
 --DROP TABLE job FROM techjobs;
 ## Part 4: Test it with SQL
---SELECT name, description
+--SELECT *
 --FROM skill
 --INNER JOIN job_skills ON skill.id = job_skills.skills_id
+--WHERE skill.id && job_skills.skills_id is not null
 --ORDER BY name ASC;
